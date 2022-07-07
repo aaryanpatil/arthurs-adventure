@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
         playerTransform = GetComponent<Transform>();
         gravityScaleAtStart = myRigidBody.gravityScale;
+        jumpCount = 1;
     }
 
     // Update is called once per frame
@@ -70,11 +71,18 @@ public class PlayerMovement : MonoBehaviour
         Die();
         CheckBounce();
         CheckBouncePad();
-        PlatformMovement();
-        
+        PlatformMovement();       
         HasVertVelocity();
     }
     
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+        if(other.collider == myFeetCollider)
+        {
+            jumpCount--;
+        }
+    }
+
     public bool HasVertVelocity()
     {
         return myRigidBody.velocity.y > 0;
@@ -148,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsOnGround()
     {
         
-        float extraRayHeight = 0.2f;
+        float extraRayHeight = 0.5f;
         isBouncing = false;
         RaycastHit2D raycastHit = Physics2D.Raycast(myFeetCollider.bounds.center, Vector2.down, myFeetCollider.bounds.extents.y + extraRayHeight, groundLayer);
 
@@ -156,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
         if (raycastHit.collider != null)
         {
             rayColor = Color.green;
+            jumpCount = 1;
             myAnimator.SetBool("IsJumping", false);  
             transform.parent = raycastHit.collider.transform;
         } 
@@ -222,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isAlive || PauseMenu.isPaused || isBouncing || CheckBouncePad()) { return; }
 
-        if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground", "Climbing", "Moving")) || IsOnPlatform())
+        if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground", "Climbing", "Moving")) || IsOnPlatform() || jumpCount > 0)
         {
             if(value.isPressed)
             {
@@ -236,11 +245,13 @@ public class PlayerMovement : MonoBehaviour
                 // }
                 // else
                 // {
-                    myRigidBody.velocity += new Vector2(0f, jumpSpeed);
+                    //myRigidBody.velocity += new Vector2(0f, jumpSpeed);
                 // }
+                myRigidBody.AddForce(new Vector2(0f, jumpSpeed), ForceMode2D.Impulse );
                 myAnimator.SetBool("IsJumping", true);
                 FindObjectOfType<AudioManager>().Play("Player Jump", 0f);
-                // jumpCount += 1;    
+                // jumpCount += 1; 
+                jumpCount--;   
             }
             else
             {
