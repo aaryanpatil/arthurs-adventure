@@ -73,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
         CheckBouncePad();
         PlatformMovement();       
         HasVertVelocity();
+        
+        if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            jumpCount = 1;
+        }
     }
     
     private void OnCollisionExit2D(Collision2D other) 
@@ -164,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
         if (raycastHit.collider != null)
         {
             rayColor = Color.green;
-            jumpCount = 1;
+    
             myAnimator.SetBool("IsJumping", false);  
             transform.parent = raycastHit.collider.transform;
         } 
@@ -247,7 +252,20 @@ public class PlayerMovement : MonoBehaviour
                 // {
                     //myRigidBody.velocity += new Vector2(0f, jumpSpeed);
                 // }
-                myRigidBody.AddForce(new Vector2(0f, jumpSpeed), ForceMode2D.Impulse );
+                Debug.Log(jumpCount);
+                if(myRigidBody.velocity.y < 0)
+                {
+                    myRigidBody.AddForce(new Vector2(0f, jumpSpeed - myRigidBody.velocity.y), ForceMode2D.Impulse);
+                }
+                else if(myRigidBody.velocity.y > 0)
+                {
+                    myRigidBody.AddForce(new Vector2(0f, jumpSpeed - myRigidBody.velocity.y), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    myRigidBody.AddForce(new Vector2(0f, jumpSpeed), ForceMode2D.Impulse);
+                }
+                
                 myAnimator.SetBool("IsJumping", true);
                 FindObjectOfType<AudioManager>().Play("Player Jump", 0f);
                 // jumpCount += 1; 
