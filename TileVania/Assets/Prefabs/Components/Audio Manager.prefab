@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8272426395098128031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8272426395098128017}
+  - component: {fileID: 8272426395098128016}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8272426395098128017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272426395098128031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8272426395098128016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272426395098128031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab5591616b4b5044a412c6a86d8c469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: b68190d08b919b74d891df30f3921515, type: 3}
+    volume: 0.69
+    pitch: 1
+    loop: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: Coin Collect
+    clip: {fileID: 8300000, guid: 354fa1194d75cd348b91a813645017a7, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Player Death
+    clip: {fileID: 8300000, guid: 82fca559675278b43949c34c986bc363, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Player Jump
+    clip: {fileID: 8300000, guid: 0c307f2e2a97fc64eb5794040b67d5dc, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Enemy Death
+    clip: {fileID: 8300000, guid: 788cb55eb24bb9942a2001b90c6a0fff, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Bounce Pad
+    clip: {fileID: 8300000, guid: 449088275293adf45a8c4cecfaf037f5, type: 3}
+    volume: 0.5
+    pitch: 0.9
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Level Complete
+    clip: {fileID: 8300000, guid: e087a5cf326154b4a9bf3ba114d5d92b, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Game Load
+    clip: {fileID: 8300000, guid: 978737d6f9694394a91ae3512f05a3a8, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: Bullet Shoot
+    clip: {fileID: 8300000, guid: 44ed67b0869792f439e69f5db6a2d594, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: Game Over
+    clip: {fileID: 8300000, guid: c83a0d5e3dd79f1409ad2e4995c14ee3, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    delay: 0
+    source: {fileID: 0}
