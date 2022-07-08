@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Spike Animated
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 3740546e2e86f9d4caa9ddbf847e46d0, type: 3}
+  - {fileID: 21300000, guid: 2e854ba8c584fe74bb89838579b29889, type: 3}
+  - {fileID: 21300000, guid: 6703a2c3b2b519347932ffb32857c92f, type: 3}
+  - {fileID: 21300000, guid: 81b6337476e9e174181a2e09b62919b5, type: 3}
+  - {fileID: 21300000, guid: 9fbc8169058b30845962409d3871dcfb, type: 3}
+  - {fileID: 21300000, guid: 23c3b58b77c0b56458351ad3ec778eb2, type: 3}
+  - {fileID: 21300000, guid: 627adead8257a7a4a9e984a0e108ac74, type: 3}
+  m_MinSpeed: 15
+  m_MaxSpeed: 15
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1
