@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using System.Runtime.InteropServices;
+using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask platformLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask bouncingLayer;
+
+    // [Header("Camera")]
+    // [SerializeField] private CinemachineVirtualCamera leftCam;
     
 
     Vector2 moveInput;
@@ -201,6 +205,13 @@ public class PlayerMovement : MonoBehaviour
         if(playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2 (Mathf.Sign(myRigidBody.velocity.x), 1f);
+            // if(Mathf.Sign(myRigidBody.velocity.x) == -1)
+            // {
+            //     leftCam.enabled = true;
+            //     return;
+            // }
+            // leftCam.enabled = false;
+
         }
     }
 
