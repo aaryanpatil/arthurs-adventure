@@ -351,9 +351,18 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetBool("IsClimbing", false);
             myAnimator.SetBool("IsJumping", false);
             myAnimator.SetBool("IsRunning", false);
-            myRigidBody.velocity = deathKick;
+            if(Mathf.Sign(myRigidBody.velocity.x) == -1)
+            {
+                myRigidBody.velocity = deathKick;
+            }
+            else
+            {
+                myRigidBody.velocity = deathKick;
+            }
+            
             myRigidBody.gravityScale = deathGravity;
             myRigidBody.drag = deathDrag;
+            myBodyCollider.enabled = false;
             FindObjectOfType<AudioManager>().Play("Player Death", 0f);
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
