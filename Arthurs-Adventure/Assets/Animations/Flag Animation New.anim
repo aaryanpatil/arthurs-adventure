@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flag Animation
+  m_Name: Flag Animation New
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1262290925, guid: 7a624997f8b3c554dbf12a27646f2947, type: 3}
+      value: {fileID: 21300000, guid: 067fdbf28f788584c8a016b92a65a137, type: 3}
     - time: 0.083333336
-      value: {fileID: -1580103355, guid: 7a624997f8b3c554dbf12a27646f2947, type: 3}
+      value: {fileID: 21300000, guid: e147150677db6c340823c01a54be5491, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1262290925, guid: 7a624997f8b3c554dbf12a27646f2947, type: 3}
-    - {fileID: -1580103355, guid: 7a624997f8b3c554dbf12a27646f2947, type: 3}
+    - {fileID: 21300000, guid: 067fdbf28f788584c8a016b92a65a137, type: 3}
+    - {fileID: 21300000, guid: e147150677db6c340823c01a54be5491, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
