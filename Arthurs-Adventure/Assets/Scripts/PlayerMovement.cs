@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using System.Runtime.InteropServices;
 using Cinemachine;
-using UnityEditor.Timeline;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(IsOnPlatform())
         {
-            //
+            jumpCount = 1;
         }
         else
         {
@@ -268,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
                 // {
                     //myRigidBody.velocity += new Vector2(0f, jumpSpeed);
                 // }
-                Debug.Log(jumpCount);
+                //Debug.Log(jumpCount);
                 if(myRigidBody.velocity.y < 0)
                 {
                     myRigidBody.AddForce(new Vector2(0f, jumpSpeed - myRigidBody.velocity.y), ForceMode2D.Impulse);
@@ -334,7 +334,7 @@ public class PlayerMovement : MonoBehaviour
     void Run()
     {
         currentInputVector = Vector2.SmoothDamp(currentInputVector, moveInput, ref smoothInputVelocity, smoothInputSpeed);
-        Debug.Log(currentInputVector);
+        //Debug.Log(currentInputVector);
         Vector2 playerVelocity = new Vector2(currentInputVector.x * runSpeed *  Time.fixedDeltaTime, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
 
