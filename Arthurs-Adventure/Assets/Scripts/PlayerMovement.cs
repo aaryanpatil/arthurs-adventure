@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using System.Runtime.InteropServices;
 using Cinemachine;
+using UnityEditor.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -50,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     bool isBouncing = false;
     int jumpCount;
 
+    private Vector2 currentInputVector;
+    private Vector2 smoothInputVelocity;
+    [SerializeField] private float smoothInputSpeed = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!isAlive || PauseMenu.isPaused) { return; }
 
@@ -328,17 +333,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Run()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidBody.velocity.y);
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, moveInput, ref smoothInputVelocity, smoothInputSpeed);
+        Debug.Log(currentInputVector);
+        Vector2 playerVelocity = new Vector2(currentInputVector.x * runSpeed *  Time.fixedDeltaTime, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        if(playerHasHorizontalSpeed)
+        if(moveInput.x == 0)
         {
-            myAnimator.SetBool("IsRunning", true);
+            myAnimator.SetBool("IsRunning", false);
         }
         else
         {
-            myAnimator.SetBool("IsRunning", false);
+            myAnimator.SetBool("IsRunning", true);
         }
     }
 
@@ -347,22 +354,17 @@ public class PlayerMovement : MonoBehaviour
         if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
         {
             isAlive = false;
+
             myAnimator.SetTrigger("Dying");
             myAnimator.SetBool("IsClimbing", false);
             myAnimator.SetBool("IsJumping", false);
             myAnimator.SetBool("IsRunning", false);
-            if(Mathf.Sign(myRigidBody.velocity.x) == -1)
-            {
-                myRigidBody.velocity = deathKick;
-            }
-            else
-            {
-                myRigidBody.velocity = deathKick;
-            }
-            
+
+            myRigidBody.velocity = deathKick;        
             myRigidBody.gravityScale = deathGravity;
             myRigidBody.drag = deathDrag;
             myBodyCollider.enabled = false;
+            
             FindObjectOfType<AudioManager>().Play("Player Death", 0f);
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
