@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    [SerializeField] float levelLoadDelay = 3f;
+    [SerializeField] float levelLoadDelay = 4f;
     private bool sfxPlayed = false;
 
     ParticleSystem myParticleSystem;
@@ -24,6 +24,7 @@ public class LevelExit : MonoBehaviour
             FindObjectOfType<Rigidbody2D>().velocity = new Vector2(0f,0f);
             myParticleSystem.Play();
             StartCoroutine(LoadNextLevel());
+            FindObjectOfType<SceneTransition>().MakeTransition();
         }      
     }
 
@@ -40,7 +41,8 @@ public class LevelExit : MonoBehaviour
         }
 
         FindObjectOfType<ScenePersist>().ResetScenePersist();
-        SceneManager.LoadScene(nextSceneIndex);
+        
+        SceneManager.LoadScene(nextSceneIndex);      
         FindObjectOfType<PlayerMovement>().enabled = true;
     }
 }

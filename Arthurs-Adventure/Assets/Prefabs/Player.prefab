@@ -126,11 +126,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.02
   m_AngularDrag: 0.05
-  m_GravityScale: 3.5
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &756547817
 CapsuleCollider2D:
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd4d80976e8577428d3030b4c7f2757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 7
-  jumpSpeed: 13
+  runSpeed: 350
+  jumpSpeed: 14
   climbSpeed: 5
   deathKick: {x: -10, y: 10}
-  deathGravity: 4
+  deathGravity: 5
   deathDrag: 3
   bullet: {fileID: 1635903521893712571, guid: afa0b7ddef34b78449d2da31e0afd8f5, type: 3}
   gun: {fileID: 5440391520499145895}
@@ -178,6 +178,7 @@ MonoBehaviour:
   bouncingLayer:
     serializedVersion: 2
     m_Bits: 2048
+  smoothInputSpeed: 0.05
 --- !u!114 &756547819
 MonoBehaviour:
   m_ObjectHideFlags: 0
