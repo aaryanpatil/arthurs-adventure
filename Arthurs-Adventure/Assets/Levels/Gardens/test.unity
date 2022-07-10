@@ -22309,7 +22309,8 @@ GameObject:
   - component: {fileID: 1637888575}
   - component: {fileID: 1637888579}
   - component: {fileID: 1637888580}
-  m_Layer: 15
+  - component: {fileID: 1637888581}
+  m_Layer: 6
   m_Name: Rotating Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22435,7 +22436,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637888574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04f6081d25fcda94eb9e81a82ed5c221, type: 3}
   m_Name: 
@@ -22463,6 +22464,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1637888581
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637888574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a81e8dee12a2164c89477a7146551ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1647117441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1647117441, guid: 419e195082c49b7469650803f7255125, type: 3}
