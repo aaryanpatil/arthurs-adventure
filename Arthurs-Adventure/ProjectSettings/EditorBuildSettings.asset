@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Levels/Game Start.unity
     guid: a42e2a143657975418226e67fb888a62
   - enabled: 1
-    path: Assets/Levels/Level Select.unity
+    path: Assets/Levels/Gardens/Level Select.unity
     guid: e85ca692d92856b4b85270c60b856485
   - enabled: 1
     path: Assets/Levels/Gardens/1.unity

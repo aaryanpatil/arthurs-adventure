@@ -27,7 +27,7 @@ MonoBehaviour:
     m_PointSize: 90
     m_Scale: 1
     m_LineHeight: 68.02734
-    m_AscentLine: 59.941406
+    m_AscentLine: 50
     m_CapLine: 34
     m_MeanLine: 34
     m_Baseline: 0
@@ -1359,7 +1359,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: -0.17
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0
@@ -1377,8 +1377,8 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.5935471
+    - _ScaleRatioB: 0.88425
+    - _ScaleRatioC: 0.88425
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1391,10 +1391,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 1
+    - _UnderlayDilate: 0.89
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0.232
+    - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
@@ -1405,11 +1405,11 @@ Material:
     - _FaceColor: {r: 0.89264864, g: 0.9150943, b: 0.9150943, a: 1}
     - _GlowColor: {r: 1, g: 0.74030566, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.23864366, g: 0.38679248, b: 0.36562836, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.65882355}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.89411765}
   m_BuildTextureStacks: []
 --- !u!28 &544386305141772843
 Texture2D:

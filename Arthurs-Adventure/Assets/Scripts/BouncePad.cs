@@ -47,6 +47,7 @@ public class BouncePad : MonoBehaviour
             if (player.HasVertVelocity())
             {    
                 padAnimator.SetBool("IsBouncing", true);
+                FindObjectOfType<AudioManager>().Play("Bounce Pad", 0f);
             } 
             StartCoroutine(WaitForAnimation());
         }
@@ -56,6 +57,11 @@ public class BouncePad : MonoBehaviour
             yield return new WaitForSecondsRealtime(waitTime);
             padAnimator.SetBool("IsBouncing", false);
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+        player.jumpCount = 1;
     }
 
 

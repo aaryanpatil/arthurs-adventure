@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D myFeetCollider;
     CircleCollider2D circleCollider2D;
     Animator myAnimator;
+    ParticleSystem jumpParticle;
     
     private Transform playerTransform;
     private Transform platform;
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
     bool isPaused = false;
     bool isBouncing = false;
-    int jumpCount;
+    public int jumpCount;
 
     private Vector2 currentInputVector;
     private Vector2 smoothInputVelocity;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         myFeetCollider = GetComponent<BoxCollider2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         playerTransform = GetComponent<Transform>();
+        jumpParticle = GetComponent<ParticleSystem>();
         gravityScaleAtStart = myRigidBody.gravityScale;
         jumpCount = 1;
     }
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         ClimbLadder();
         CancelJumpAnimation();
         Die();
-        CheckBounce();
+        //CheckBounce();
         CheckBouncePad();
         PlatformMovement();       
         HasVertVelocity();
@@ -86,14 +88,6 @@ public class PlayerMovement : MonoBehaviour
         if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             jumpCount = 1;
-        }
-    }
-    
-    private void OnCollisionExit2D(Collision2D other) 
-    {
-        if(other.collider == myFeetCollider)
-        {
-            jumpCount--;
         }
     }
 
@@ -198,6 +192,7 @@ public class PlayerMovement : MonoBehaviour
         if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")))
         {
             FindObjectOfType<AudioManager>().Play("Bounce Pad", 0f);
+            jumpCount = 1;
         }
 
     }
@@ -268,7 +263,10 @@ public class PlayerMovement : MonoBehaviour
                 // {
                     //myRigidBody.velocity += new Vector2(0f, jumpSpeed);
                 // }
-                //Debug.Log(jumpCount);
+                // Debug.Log(jumpCount);
+                
+            
+                
                 if(myRigidBody.velocity.y < 0)
                 {
                     myRigidBody.AddForce(new Vector2(0f, jumpSpeed - myRigidBody.velocity.y), ForceMode2D.Impulse);
@@ -283,6 +281,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
                 myAnimator.SetBool("IsJumping", true);
+                jumpParticle.Play();
                 FindObjectOfType<AudioManager>().Play("Player Jump", 0f);
                 // jumpCount += 1; 
                 jumpCount--;   
