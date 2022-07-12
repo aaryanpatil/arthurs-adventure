@@ -160,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         {   
             rayColor = Color.red;
             myAnimator.SetBool("IsJumping", true);
-            gameObject.transform.parent = playerTransform;
+            gameObject.transform.parent = null;
         }
         Debug.DrawRay(myFeetCollider.bounds.center, Vector2.down * (myFeetCollider.bounds.extents.y + extraRayHeight), rayColor);
 
